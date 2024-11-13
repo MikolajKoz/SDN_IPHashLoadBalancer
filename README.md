@@ -1,5 +1,7 @@
 # SDN_IPHashLoadBalancer
 
+To run this topology type "sudo mn --custom topology_setup.py --topo mytopo"
+
 # Topology
 ![obraz](https://github.com/user-attachments/assets/24b4f6ee-8b3f-4051-ac7d-51ecd707c693)
 
