@@ -8,7 +8,7 @@ This project implements a Load Balancer using the IP Hash algorithm in a Softwar
 
 ### 1. Configuring the Project in Eclipse
 
-To run this project, first copy the entire source code from the `kt` directory in the repository to your local Floodlight project directory on your virtual machine. 
+To run this project, first copy the entire source code from the `kt` directory in the repository to your local Floodlight project directory to `pl.edu.agh.kt` package in `src/main/java` 
 
 ### 2. Running the Topology
 
