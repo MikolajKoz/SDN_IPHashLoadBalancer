@@ -16,8 +16,54 @@ Once you’ve copied the files, navigate to the directory where the topology sou
 ```bash
 sudo mn --custom topology_setup.py --topo mytopo --controller=remote,ip=<controller_ip>,port=6653
 ```
+### 3. Sending Host IPs via API
+To configure the IPs for the hosts in the topology, you can send a JSON request to the provided API endpoint. Here’s how to use it:
 
-### 3. Interacting with Hosts
+### API Endpoint
+```bash
+http://<controller_ip>/sdnlab/hosts
+```
+### Request Body
+
+To send the list of hosts with their IPs, switch assignments, and ports, use the following JSON format:
+
+```json
+{
+    "hostList": [
+        {
+            "name": "h1",
+            "sw": 3,
+            "port": 3,
+            "ip": "10.0.0.1"
+        },
+        {
+            "name": "h2",
+            "sw": 4,
+            "port": 3,
+            "ip": "10.0.0.2"
+        },
+        {
+            "name": "h3",
+            "sw": 5,
+            "port": 3,
+            "ip": "10.0.0.3"
+        },
+        {
+            "name": "h4",
+            "sw": 6,
+            "port": 3,
+            "ip": "10.0.0.4"
+        }
+    ]
+}
+```
+### How to Send the Request
+You can send the JSON request using any HTTP client. For example, using curl:
+```bash
+curl -X POST -H "Content-Type: application/json" -d @hosts_config.json http://<controller_ip>:8080/sdnlab/hosts
+```
+
+### 4. Interacting with Hosts
 
 To interact with the hosts in the topology, open a terminal in Mininet for each host by running the following command:
 ```bash
@@ -29,19 +75,34 @@ The available hosts are:
 - `h3`
 - `h4`
 
-### 4. Traffic Generation
+### 5. Traffic Generation
 
 To generate traffic from any of the hosts, run the traffic generator script located at:
 ```bash
-python /path_to_source_code_of_traffic_generators/traffic_generator_h1.py
+python /path_to_source_code_of_traffic_generators/traffic_generator/traffic_generator_h1.py
 ```
 
-### 5. Viewing Flow Tables on Switches
+### 6. Viewing Flow Tables on Switches
+To display the flow tables on a specific switch, use the following command in Mininet terminal, where topology is created:
 ```bash
 sh ovs-ofctl dump-flows <switch_name>
 ```
+The available switches are:
+- `s1`
+- `s2`
+- `l1`
+- `l2`
+- `l3`
+- `l4`
 
-To display the flow tables on a specific switch, use the following command:
+### 7. Getting Link Information Between Switches via API
+
+To get information about the links between switches in your topology, you can send a GET request to the following endpoint:
+### API Endpoint
+```bash
+http://<controller_ip>:8080/wm/links/switch/json
+```
+
 # Topology
 ![obraz](https://github.com/user-attachments/assets/24b4f6ee-8b3f-4051-ac7d-51ecd707c693)
 
