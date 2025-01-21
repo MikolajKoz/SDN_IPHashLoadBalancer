@@ -1,17 +1,47 @@
 # SDN_IPHashLoadBalancer
 
-Run floodlight project in eclipse copying whole source code from kt directory from repository to floodlight project on your VM
+## Project Overview
 
-To run this topology type in directory where topology source code is located: "sudo mn --custom topology_setup.py --topo mytopo --controller=remote,ip=<controller_ip>,port=6653"
-Switches list [s1, s2]
+This project implements a Load Balancer using the IP Hash algorithm in a Software Defined Networking (SDN) environment. The topology is created using Mininet and controlled by the Floodlight controller. The primary objective is to analyze the performance of load balancing with the IP Hash algorithm in SDN networks.
 
-When topology is created type into mininet interface: "xterm <host_name>"
-Hosts list [h1, h2 ,h3, h4]
+## Setting Up the Project
 
-In xterm terminal run traffic generator for any of the hosts: "python /path_to_source_code_of_traffic_generators/traffic_generator_h1.py"
+### 1. Configuring the Project in Eclipse
 
-To show flow table on switch: "sh ovs-ofctl dump-flows <switch_name>"
+To run this project, first copy the entire source code from the `kt` directory in the repository to your local Floodlight project directory on your virtual machine. 
 
+### 2. Running the Topology
+
+Once you’ve copied the files, navigate to the directory where the topology source code is located, and use the following command to start the Mininet network with the custom topology:
+```bash
+sudo mn --custom topology_setup.py --topo mytopo --controller=remote,ip=<controller_ip>,port=6653
+```
+
+### 3. Interacting with Hosts
+
+To interact with the hosts in the topology, open a terminal in Mininet for each host by running the following command:
+```bash
+xterm <host_name>
+```
+The available hosts are:
+- `h1`
+- `h2`
+- `h3`
+- `h4`
+
+### 4. Traffic Generation
+
+To generate traffic from any of the hosts, run the traffic generator script located at:
+```bash
+python /path_to_source_code_of_traffic_generators/traffic_generator_h1.py
+```
+
+### 5. Viewing Flow Tables on Switches
+```bash
+sh ovs-ofctl dump-flows <switch_name>
+```
+
+To display the flow tables on a specific switch, use the following command:
 # Topology
 ![obraz](https://github.com/user-attachments/assets/24b4f6ee-8b3f-4051-ac7d-51ecd707c693)
 
