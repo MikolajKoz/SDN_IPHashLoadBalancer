@@ -104,7 +104,8 @@ http://<controller_ip>:8080/wm/links/switch/json
 ```
 
 # Topology
-![obraz](https://github.com/user-attachments/assets/24b4f6ee-8b3f-4051-ac7d-51ecd707c693)
+![obraz](https://github.com/user-attachments/assets/d0d7e3e0-429b-468d-ba50-474af776dab6)
+
 
 # Authors
 - Maciej Szymański
